@@ -13,7 +13,7 @@
   },
   "options": {
     "properties": {
-      "locations": {
+      "location": {
         "order": 1,
         "title": "Location",
         "type": "object",
