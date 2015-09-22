@@ -1,0 +1,32 @@
+<style>
+  html, body {
+    font-family: sans-serif;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+  }
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
+<link rel="stylesheet" href="head.css">
+<script>
+Eager = {
+  createElement: function() {
+    var el = document.createElement('eager-app');
+    document.body.appendChild(el);
+    return el;
+  }
+};
+INSTALL_OPTIONS = {
+  location: {
+    selector: 'body',
+    type: 'append'
+  },
+  deadline: 'January 1 2016 18:00:00',
+  color: '#c31d08'
+};
+</script>
+<script src="head.js"></script>

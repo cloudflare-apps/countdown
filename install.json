@@ -1,0 +1,39 @@
+{
+  "resources": {
+    "head": [
+      {
+        "type": "style",
+        "src": "head.css"
+      },
+      {
+        "type": "script",
+        "src": "head.js"
+      }
+    ]
+  },
+  "options": {
+    "properties": {
+      "locations": {
+        "order": 1,
+        "title": "Location",
+        "type": "object",
+        "format": "element"
+      },
+      "title": {
+        "order": 2,
+        "title": "Deadline",
+        "description": "e.g. <strong>January 1 2016 18:00:00</strong>",
+        "type": "string",
+        "format": "date",
+        "default": "January 1 2016 18:00:00"
+      },
+      "color": {
+        "order": 2,
+        "title": "Color",
+        "type": "string",
+        "format": "color",
+        "default": "#c31d08"
+      }
+    }
+  }
+}

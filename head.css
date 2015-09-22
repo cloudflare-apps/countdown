@@ -1,0 +1,58 @@
+eager-countdown-app, eager-countdown-app * {
+  box-sizing: content-box !important;
+}
+
+eager-countdown-app {
+  display: inline-block !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  border-radius: .25em !important;
+  color: #fff !important;
+}
+
+eager-countdown-app eager-countdown-app-block {
+  display: inline-block !important;
+  width: 5em !important;
+  margin-right: 1em !important;
+  padding: .75em !important;
+  border-radius: 3px !important;
+}
+
+eager-countdown-app eager-countdown-app-block:last-child {
+  margin-right: 0 !important;
+}
+
+eager-countdown-app eager-countdown-app-number {
+  display: block !important;
+  font-size: 3em !important;
+  height: 1.5em !important;
+  line-height: 1.5em !important;
+  text-align: center !important;
+  border-radius: 3px !important;
+  background: rgba(0, 0, 0, .5) !important;
+  font-family: monospace !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+eager-countdown-app eager-countdown-app-number[data-eager-countdown-app-digits="3"] {
+  font-size: 2em !important;
+  height: 2.25em !important;
+  line-height: 2.25em !important;
+}
+
+eager-countdown-app eager-countdown-app-label {
+  display: block !important;
+  margin-top: 1em !important;
+  text-transform: uppercase !important;
+  letter-spacing: .06em !important;
+  text-indent: .06em !important;
+  font-size: .8em !important;
+  text-align: center !important;
+}
