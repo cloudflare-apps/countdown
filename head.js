@@ -46,7 +46,7 @@
     var remaining, i;
     remaining = getTimeRemaining(options.deadline);
     for (i = 0; i < parts.length; i++) {
-      partsEls[parts[i]].number.innerHTML = remaining[parts[i]];
+      partsEls[parts[i]].number.innerHTML = remaining[parts[i]] || 0;
       partsEls[parts[i]].label.innerHTML = remaining[parts[i]] === 1 ? parts[i] : parts[i] + 's';
     }
 
