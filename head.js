@@ -15,7 +15,7 @@
 
   updateStyle = function(){
     colorStyle.innerHTML = namespace + '-block { background: ' + options.color + ' !important}';
-  }
+  };
 
   getTimeRemaining = function(deadline) {
     var remaining = Date.parse(deadline) - Date.parse(new Date());
@@ -87,9 +87,9 @@
     options = opts;
 
     init();
-  }
+  };
 
   INSTALL_SCOPE = {
     setOptions: setOptions
-  }
+  };
 })();
