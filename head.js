@@ -3,7 +3,7 @@
     return
   }
 
-  var options, namespace, parts, partsEls, colorStyle, getTimeRemaining, createEl, createPart, update, interval, init;
+  var options, namespace, parts, partsEls, colorStyle, getTimeRemaining, createEl, createPart, update, interval, init, element, updateStyle, setOptions;
 
   options = INSTALL_OPTIONS;
   namespace = 'eager-countdown-app';
@@ -11,7 +11,11 @@
   partsEls = {};
 
   colorStyle = document.createElement('style');
-  colorStyle.innerHTML = namespace + '-block { background: ' + options.color + ' !important}';
+  document.head.appendChild(colorStyle);
+
+  updateStyle = function(){
+    colorStyle.innerHTML = namespace + '-block { background: ' + options.color + ' !important}';
+  }
 
   getTimeRemaining = function(deadline) {
     var remaining = Date.parse(deadline) - Date.parse(new Date());
@@ -54,8 +58,6 @@
   };
 
   init = function() {
-    document.body.appendChild(colorStyle);
-
     var el, i;
     el = createEl();
     for (i = 0; i < parts.length; i++) {
@@ -63,9 +65,13 @@
       el.appendChild(partsEls[parts[i]].block);
     }
 
-    Eager.createElement(options.location).appendChild(el);
+    element = Eager.createElement(options.location, element).appendChild(el);
     update();
+    updateStyle();
 
+    if (interval){
+      clearInterval(interval);
+    }
     interval = setInterval(function(){
       update();
 
@@ -76,4 +82,14 @@
   };
 
   document.addEventListener('DOMContentLoaded', init);
+
+  setOptions = function(opts) {
+    options = opts;
+
+    init();
+  }
+
+  INSTALL_SCOPE = {
+    setOptions: setOptions
+  }
 })();

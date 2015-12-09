@@ -11,6 +11,14 @@
       }
     ]
   },
+  "preview": {
+    "handlers": [
+      {
+        "options": ["*"],
+        "execute": "INSTALL_SCOPE.setOptions(INSTALL_OPTIONS)"
+      }
+    ]
+  },
   "options": {
     "properties": {
       "location": {
@@ -22,9 +30,8 @@
       "deadline": {
         "order": 2,
         "title": "Deadline date and time",
-        "description": "e.g. <strong>January 1 2016 18:00:00</strong>",
         "type": "string",
-        "format": "date",
+        "format": "date-time",
         "default": "January 1 2016 18:00:00"
       },
       "color": {
