@@ -22,7 +22,7 @@
   "options": {
     "properties": {
       "location": {
-        "order": 1,
+        "order": 0,
         "title": "Location",
         "type": "object",
         "format": "element",
@@ -30,6 +30,11 @@
           "selector": "body",
           "method": "prepend"
         }
+      },
+      "countdownTitle": {
+        "order": 1,
+        "title": "Countdown Title",
+        "type": "string"
       },
       "deadline": {
         "order": 2,

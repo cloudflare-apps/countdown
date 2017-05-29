@@ -11,9 +11,20 @@
   document.head.appendChild(colorStyle)
 
   function updateStyle () {
-    colorStyle.innerHTML = 'cloudflare-app[app="countdown"] cf-countdown-block {' +
-      'background: ' + options.color +
-    '}'
+    var color = options.color.trim()
+    var content = ''
+
+    if (color) {
+      content += '' +
+      'cloudflare-app[app="countdown"] cf-countdown-label, cloudflare-app[app="countdown"] cf-countdown-block {' +
+        'color: #fff;' +
+      '}' +
+      'cloudflare-app[app="countdown"] cf-countdown-block, cloudflare-app[app="countdown"] cf-countdown-header {' +
+        'background: ' + color +
+      '}'
+    }
+
+    colorStyle.innerHTML = content
   }
 
   function getTimeRemaining (deadline) {
@@ -62,6 +73,16 @@
     updateStyle()
     element = INSTALL.createElement(options.location, element)
     element.setAttribute('app', 'countdown')
+
+    var header = createNamespacedElement('header')
+    var headerLabel = createNamespacedElement('label')
+
+    if (options.countdownTitle.trim()) {
+      headerLabel.textContent = options.countdownTitle
+      header.appendChild(headerLabel)
+
+      element.appendChild(header)
+    }
 
     parts.forEach(function (part) {
       partsEls[part] = createPart(part)

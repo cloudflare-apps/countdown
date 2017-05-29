@@ -12,7 +12,15 @@ cloudflare-app[app="countdown"] {
   text-align: center;
   margin: 1em auto;
   border-radius: .25em;
-  color: #fff;
+  color: inherit;
+}
+
+cloudflare-app[app="countdown"] cf-countdown-header {
+  display: block;
+  font-size: 1.8em;
+  line-height: 1.6;
+  margin-bottom: 0.5em;
+  border-radius: 3px;
 }
 
 cloudflare-app[app="countdown"] cf-countdown-block {
