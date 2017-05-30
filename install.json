@@ -45,10 +45,27 @@
       },
       "color": {
         "order": 2,
-        "title": "Color",
+        "title": "Background color",
+        "description": "Leave blank for transparent.",
         "type": "string",
         "format": "color",
         "default": "#c31d08"
+      },
+      "position": {
+        "order": 3,
+        "title": "Horizontal alignment",
+        "type": "string",
+        "default": "center",
+        "enum": [
+          "left",
+          "center",
+          "right"
+        ],
+        "enumNames": {
+          "left": "Left",
+          "center": "Center",
+          "right": "Right"
+        }
       }
     }
   }

@@ -4,23 +4,53 @@ cloudflare-app[app="countdown"] * {
 }
 
 cloudflare-app[app="countdown"] {
+  display: block;
+  display: flex;
+}
+
+cloudflare-app[app="countdown"][data-position="left"] {
+  justify-content: flex-start;
+}
+
+cloudflare-app[app="countdown"][data-position="center"] {
+  justify-content: center;
+}
+
+cloudflare-app[app="countdown"][data-position="right"] {
+  justify-content: flex-end;
+}
+
+cloudflare-app[app="countdown"] cf-countdown-wrapper {
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
   font-family: inherit;
   font-size: inherit;
   text-align: center;
-  margin: 1em auto;
+  margin: 1em;
   border-radius: .25em;
   color: inherit;
+}
+
+cloudflare-app[app="countdown"][data-background="visible"] cf-countdown-label,
+cloudflare-app[app="countdown"][data-background="visible"] cf-countdown-block {
+  color: #fff;
+}
+
+cloudflare-app[app="countdown"][data-background="visible"] cf-countdown-number {
+  background: rgba(0, 0, 0, .5);
 }
 
 cloudflare-app[app="countdown"] cf-countdown-header {
   display: block;
   font-size: 1.8em;
   line-height: 1.6;
-  margin-bottom: 0.5em;
+  margin-bottom: .5em;
   border-radius: 3px;
+}
+
+cloudflare-app[app="countdown"] cf-countdown-header cf-countdown-label {
+  padding: .5em;
 }
 
 cloudflare-app[app="countdown"] cf-countdown-block {
@@ -29,6 +59,12 @@ cloudflare-app[app="countdown"] cf-countdown-block {
   margin-right: 1em;
   padding: .75em;
   border-radius: 3px;
+}
+
+cloudflare-app[app="countdown"] cf-countdown-content {
+  display: block;
+  display: flex;
+  justify-content: space-between;
 }
 
 cloudflare-app[app="countdown"] cf-countdown-block:last-child {
@@ -42,7 +78,6 @@ cloudflare-app[app="countdown"] cf-countdown-number {
   line-height: 1.5em;
   text-align: center;
   border-radius: 3px;
-  background: rgba(0, 0, 0, .5);
   font-family: monospace;
   white-space: nowrap;
   overflow: hidden;

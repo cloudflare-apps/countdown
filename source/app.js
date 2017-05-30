@@ -4,7 +4,7 @@
   var options = INSTALL_OPTIONS
   var parts = ['Day', 'Hour', 'Minute', 'Second']
   var partsEls = {}
-  var element
+  var container
   var interval
 
   var colorStyle = document.createElement('style')
@@ -14,11 +14,10 @@
     var color = options.color.trim()
     var content = ''
 
+    container.setAttribute('data-background', color ? 'visible' : 'transparent')
+
     if (color) {
       content += '' +
-      'cloudflare-app[app="countdown"] cf-countdown-label, cloudflare-app[app="countdown"] cf-countdown-block {' +
-        'color: #fff;' +
-      '}' +
       'cloudflare-app[app="countdown"] cf-countdown-block, cloudflare-app[app="countdown"] cf-countdown-header {' +
         'background: ' + color +
       '}'
@@ -70,9 +69,12 @@
   }
 
   function bootstrap () {
+    container = INSTALL.createElement(options.location, container)
+    container.setAttribute('app', 'countdown')
+    container.setAttribute('data-position', options.position)
     updateStyle()
-    element = INSTALL.createElement(options.location, element)
-    element.setAttribute('app', 'countdown')
+
+    var wrapper = createNamespacedElement('wrapper')
 
     var header = createNamespacedElement('header')
     var headerLabel = createNamespacedElement('label')
@@ -81,13 +83,19 @@
       headerLabel.textContent = options.countdownTitle
       header.appendChild(headerLabel)
 
-      element.appendChild(header)
+      wrapper.appendChild(header)
     }
+
+    var content = createNamespacedElement('content')
 
     parts.forEach(function (part) {
       partsEls[part] = createPart(part)
-      element.appendChild(partsEls[part].block)
+      content.appendChild(partsEls[part].block)
     })
+
+    wrapper.appendChild(content)
+
+    container.appendChild(wrapper)
 
     tick()
 
